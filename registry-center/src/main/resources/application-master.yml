@@ -1,0 +1,26 @@
+server:
+  port: 8001 # 注册中心占用8080端口
+spring:
+  profiles: master
+
+  application:
+    name: yunzai-reg
+eureka:
+  instance:
+    hostname: master
+    preferIpAddress: true
+    enableSelfPreservation: false
+    leaseRenewalIntervalInSeconds: 2
+#    environment: devp
+  client:
+     registerWithEureka: true
+     fetchRegistry: true
+
+     serviceUrl:
+      defaultZone: http://xucheng:123@slave1:8002/eureka/,http://xucheng:123@slave2:8003/eureka/ #其实就是 http://localhost:8080/eureka/
+security:
+  basic:
+    enabled: true
+  user:
+    name: xucheng
+    password: 123

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zipkin
+  rabbitmq:
+    host: 222.30.194.175
+    port: 5671
+
+server:
+  port: 8006
+
+security:
+  user:
+    name: yunzai
+    password: ${ZIPKIN_SERVER_PASSWORD:123}

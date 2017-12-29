@@ -1,0 +1,68 @@
+server:
+  port: 8888
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+logging:
+  level:
+    root: debug
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+spring:
+  rabbitmq:
+    host: 222.30.194.175
+    port: 5671
+  sleuth:
+    sampler:
+      percentage: 1
+    integration:
+      enabled: false
+    scheduled:
+      skip-pattern: "^org.*HystrixStreamTask$"
+  jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+  jackson:
+      serialization:
+        indent-output: true
+#  datasource:
+#    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/oauth2?useUnicode=true&characterEncoding=utf-8
+#    username: root
+#    password: root
+#    driver-class-name: net.sf.log4jdbc.DriverSpy
+  redis:
+    host: 127.0.0.1
+    database: 0
+    #连接数据库
+#  datasource:
+#        url: jdbc:oracle:thin:@222.30.194.175:1521:XE
+#        username: oa
+#        password: 111111
+#        # 使用druid数据源
+#        type: com.alibaba.druid.pool.DruidDataSource
+#        driver-class-name: oracle.jdbc.driver.OracleDriver
+#        filters: stat
+#        maxActive: 20
+#        initialSize: 1
+#        maxWait: 60000
+#        minIdle: 1
+#        timeBetweenEvictionRunsMillis: 60000
+#        minEvictableIdleTimeMillis: 300000
+#        validationQuery: select 'x'
+#        testWhileIdle: true
+#        testOnBorrow: false
+#        testOnReturn: false
+#        poolPreparedStatements: true
+#        maxOpenPreparedStatements: 20
+security:
+    oauth2:
+      resource:
+        filter-order: 3

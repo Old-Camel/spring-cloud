@@ -1,0 +1,35 @@
+server:
+  port: 8004
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xucheng:123@222.30.194.175:8001/eureka/
+  instance:
+#    hostname: config
+#    instance-id: 222.30.194.175:${server.port}
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: yunzai-config
+  rabbitmq:
+    host: 222.30.194.175
+    port: 5671
+  cloud:
+      config:
+        server:
+             git:
+               uri: http://222.30.192.152/pitcher-plugins/SpringCloud-Config.git
+               username: xucheng
+               password: 111111ab
+               search-paths: yunzai
+               default-label: yunzai
+
+
+
+
+security:
+  user:
+    name: yunzai
+    password: ${CONFIG_SERVER_PASSWORD:123}

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name:  yunzai-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: yunzai-config
+      fail-fast: true
+      profile: dev
+      label: yunzai
+      username: yunzai
+      password: 123
+      retry:
+        initial-interval: 2000
+        max-interval: 10000
+        multiplier: 2
+        max-attempts: 10
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://xucheng:123@222.30.194.175:8003/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
